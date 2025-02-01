@@ -1,4 +1,4 @@
-/* General body styling */
+/* General styling */
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
@@ -6,7 +6,6 @@ body {
   padding: 20px;
 }
 
-/* Container for the questionnaire */
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -15,23 +14,20 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* Centered title */
 h1 {
   text-align: center;
 }
 
-/* Styling for each form group */
+/* Form styling */
 .form-group {
   margin-bottom: 15px;
 }
 
-/* Ensure labels are clearly separated */
 label {
   display: block;
   margin-bottom: 5px;
 }
 
-/* Input styling */
 input[type="text"],
 input[type="number"] {
   width: 100%;
@@ -39,7 +35,6 @@ input[type="number"] {
   box-sizing: border-box;
 }
 
-/* Fieldset and legend styling */
 fieldset {
   border: 1px solid #ccc;
   padding: 10px 15px;
@@ -50,7 +45,6 @@ legend {
   font-weight: bold;
 }
 
-/* Inline styling for sub-groups inside fieldsets */
 .sub-group {
   margin-bottom: 10px;
 }
@@ -69,7 +63,7 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Styling for the results display area */
+/* Results area styling */
 #results {
   margin-top: 20px;
   padding: 15px;

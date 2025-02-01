@@ -9,47 +9,26 @@
   <div class="container">
     <h1>NMR Experiments Recommendation Questionnaire</h1>
     <form id="nmrForm">
-
-      <!-- Protein Sample Concentration -->
+      <!-- Q1: Protein Concentration -->
       <div class="form-group">
         <label for="concentration">What is the highest concentration you can achieve for your protein sample? (mg/mL)</label>
         <input type="number" id="concentration" name="concentration" step="0.1" required>
       </div>
 
-      <!-- Buffer Type and pH -->
+      <!-- Q2: Buffer Type and pH -->
       <div class="form-group">
         <label for="buffer">What buffer type and pH are you using for your protein sample?</label>
         <input type="text" id="buffer" name="buffer" placeholder="e.g., phosphate, pH 7.4" required>
       </div>
 
-      <!-- Protein Stability -->
-      <fieldset class="form-group">
-        <legend>At the given concentration, how stable is your protein in terms of:</legend>
-        <div class="sub-group">
-          <label>Aggregation:</label>
-          <label><input type="radio" name="aggregation" value="yes" required> Yes</label>
-          <label><input type="radio" name="aggregation" value="no"> No</label>
-        </div>
-        <div class="sub-group">
-          <label>Degradation:</label>
-          <label><input type="radio" name="degradation" value="yes" required> Yes</label>
-          <label><input type="radio" name="degradation" value="no"> No</label>
-        </div>
-        <div class="sub-group">
-          <label>Conformational changes:</label>
-          <label><input type="radio" name="conformational" value="yes" required> Yes</label>
-          <label><input type="radio" name="conformational" value="no"> No</label>
-        </div>
-      </fieldset>
-
-      <!-- Monomeric State -->
+      <!-- Q3: Protein Stability -->
       <div class="form-group">
-        <label>At the given concentration, is your protein in a monomeric state?</label>
-        <label><input type="radio" name="monomeric" value="yes" required> Yes</label>
-        <label><input type="radio" name="monomeric" value="no"> No</label>
+        <label>At the given concentration, is your protein stable in terms of aggregation, degradation and conformational changes?</label>
+        <label><input type="radio" name="stability" value="yes" required> Yes</label>
+        <label><input type="radio" name="stability" value="no"> No</label>
       </div>
 
-      <!-- Protein Structural Features -->
+      <!-- Q4: Structural Features -->
       <fieldset class="form-group">
         <legend>Does your protein have any of the following?</legend>
         <div class="sub-group">
@@ -63,38 +42,38 @@
         </div>
       </fieldset>
 
-      <!-- Micelles -->
+      <!-- Q5: Micelles -->
       <div class="form-group">
         <label>Is your protein embedded in micelles?</label>
         <label><input type="radio" name="micelles" value="yes" required> Yes</label>
         <label><input type="radio" name="micelles" value="no"> No</label>
       </div>
 
-      <!-- Ligands, Co-factors, or Nucleotides -->
+      <!-- Q6: Ligands, Co-factors, or Nucleotides -->
       <div class="form-group">
         <label>Are there any ligands, co-factors, or nucleotides present in your protein sample?</label>
         <label><input type="radio" name="ligands" value="yes" required> Yes</label>
         <label><input type="radio" name="ligands" value="no"> No</label>
       </div>
 
-      <!-- Desired Outcomes -->
+      <!-- Q7: Desired Outcomes (Mutually Exclusive) -->
       <fieldset class="form-group">
-        <legend>What are your desired outcomes from the analysis?</legend>
+        <legend>What are your desired outcomes from the analysis? (Select one)</legend>
         <div class="sub-group">
-          <label><input type="checkbox" name="outcomes" value="backbone"> Only backbone chemical shift assignments</label>
+          <label><input type="radio" name="outcomes" value="backbone" required> Only backbone chemical shift assignments</label>
         </div>
         <div class="sub-group">
-          <label><input type="checkbox" name="outcomes" value="side_chain"> Backbone and side chain atom chemical shift assignments (currently only aliphatic atoms)</label>
+          <label><input type="radio" name="outcomes" value="side_chain"> Backbone and side chain atom chemical shift assignments (currently only aliphatic atoms)</label>
         </div>
         <div class="sub-group">
-          <label><input type="checkbox" name="outcomes" value="ensemble"> Ensemble of 3D protein structures</label>
+          <label><input type="radio" name="outcomes" value="ensemble"> Ensemble of 3D protein structures</label>
         </div>
       </fieldset>
 
       <button type="submit">Submit</button>
     </form>
 
-    <!-- Results will be shown here -->
+    <!-- Results will be displayed here -->
     <div id="results"></div>
   </div>
   <script src="script.js"></script>
