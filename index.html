@@ -11,62 +11,68 @@
     <form id="nmrForm">
       <!-- Q1: Protein Concentration -->
       <div class="form-group">
-        <label for="concentration">What is the highest concentration you can achieve for your protein sample? (mg/mL)</label>
+        <label for="concentration">1. What is the highest concentration you can achieve for your protein sample? (mg/mL)</label>
         <input type="number" id="concentration" name="concentration" step="0.1" required>
       </div>
 
       <!-- Q2: Buffer Type and pH -->
       <div class="form-group">
-        <label for="buffer">What buffer type and pH are you using for your protein sample?</label>
+        <label for="buffer">2. What buffer type and pH are you using for your protein sample?</label>
         <input type="text" id="buffer" name="buffer" placeholder="e.g., phosphate, pH 7.4" required>
       </div>
 
       <!-- Q3: Protein Stability -->
       <div class="form-group">
-        <label>At the given concentration, is your protein stable in terms of aggregation, degradation and conformational changes?</label>
+        <label>3. At the given concentration, is your protein stable in terms of aggregation, degradation and conformational changes?</label>
         <label><input type="radio" name="stability" value="yes" required> Yes</label>
         <label><input type="radio" name="stability" value="no"> No</label>
       </div>
 
-      <!-- Q4: Structural Features -->
+      <!-- Q4: Protein Structural Features -->
       <fieldset class="form-group">
-        <legend>Does your protein have any of the following?</legend>
+        <legend>4. Does your protein have any of the following features? (Answer each feature separately as yes or no.)</legend>
         <div class="sub-group">
-          <label><input type="checkbox" name="features" value="intrinsically_disordered"> Intrinsically disordered regions</label>
+          <label>4.1 Intrinsically Disordered Regions:</label>
+          <label><input type="radio" name="feature_intrinsic" value="yes" required> Yes</label>
+          <label><input type="radio" name="feature_intrinsic" value="no"> No</label>
         </div>
         <div class="sub-group">
-          <label><input type="checkbox" name="features" value="long_loops"> Long loops (&gt;10 amino acids)</label>
+          <label>4.2 Long Loops (&gt;10 amino acids):</label>
+          <label><input type="radio" name="feature_loops" value="yes" required> Yes</label>
+          <label><input type="radio" name="feature_loops" value="no"> No</label>
         </div>
         <div class="sub-group">
-          <label><input type="checkbox" name="features" value="flexible_termini"> Flexible termini (&gt;6 amino acids)</label>
+          <label>4.3 Flexible Termini (&gt;6 amino acids):</label>
+          <label><input type="radio" name="feature_termini" value="yes" required> Yes</label>
+          <label><input type="radio" name="feature_termini" value="no"> No</label>
         </div>
       </fieldset>
 
-      <!-- Q5: Micelles -->
+      <!-- Q5: Micelle Embedding -->
       <div class="form-group">
-        <label>Is your protein embedded in micelles?</label>
+        <label>5. Is your protein embedded in micelles?</label>
         <label><input type="radio" name="micelles" value="yes" required> Yes</label>
         <label><input type="radio" name="micelles" value="no"> No</label>
       </div>
 
       <!-- Q6: Ligands, Co-factors, or Nucleotides -->
       <div class="form-group">
-        <label>Are there any ligands, co-factors, or nucleotides present in your protein sample?</label>
+        <label>6. Are there any ligands, co-factors, or nucleotides present in your protein sample?</label>
         <label><input type="radio" name="ligands" value="yes" required> Yes</label>
         <label><input type="radio" name="ligands" value="no"> No</label>
       </div>
 
       <!-- Q7: Desired Outcomes (Mutually Exclusive) -->
       <fieldset class="form-group">
-        <legend>What are your desired outcomes from the analysis? (Select one)</legend>
+        <legend>7. What are your desired outcomes from the analysis? (Select one)</legend>
         <div class="sub-group">
-          <label><input type="radio" name="outcomes" value="backbone" required> Only backbone chemical shift assignments</label>
+          <label><input type="radio" name="outcomes" value="backbone" required> 7.1 Only backbone chemical shift assignments</label>
         </div>
         <div class="sub-group">
-          <label><input type="radio" name="outcomes" value="side_chain"> Backbone and side chain atom chemical shift assignments (currently only aliphatic atoms)</label>
+          <label><input type="radio" name="outcomes" value="side_chain"> 7.2 Backbone and side chain atom chemical shift assignments (currently only aliphatic atoms)</label>
         </div>
         <div class="sub-group">
-          <label><input type="radio" name="outcomes" value="ensemble"> Ensemble of 3D protein structures</label>
+          <label><input type="radio" name="outcomes" value="ensemble"> 7.3 Ensemble of 3D protein structures</label>
         </div>
       </fieldset>
 

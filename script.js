@@ -9,8 +9,10 @@ document.getElementById('nmrForm').addEventListener('submit', function(event) {
   const buffer = form.buffer.value;
   const stability = form.stability.value; // "yes" or "no"
 
-  // Retrieve features (checkboxes)
-  const features = Array.from(form.querySelectorAll('input[name="features"]:checked')).map(cb => cb.value);
+  // Retrieve structural feature answers (each as radio button groups)
+  const featureIntrinsic = form.feature_intrinsic.value; // "yes" or "no"
+  const featureLoops = form.feature_loops.value;         // "yes" or "no"
+  const featureTermini = form.feature_termini.value;       // "yes" or "no"
 
   const micelles = form.micelles.value;
   const ligands = form.ligands.value;
@@ -23,7 +25,9 @@ document.getElementById('nmrForm').addEventListener('submit', function(event) {
     concentration,
     buffer,
     stability,
-    features,
+    featureIntrinsic,
+    featureLoops,
+    featureTermini,
     micelles,
     ligands,
     outcomes
@@ -42,7 +46,7 @@ function getRecommendations(answers) {
 
   // Append common information required in every scenario:
   const commonMessage = `
-    <p><strong>Important:</strong> 4D-GRAPHS requires processed peak lists as input. It does not support automated peak picking or unfolding/unaliasing of peaks. If you seek an automatic solution for that, then use the application “ARTINA: peak picking” from <a href="https://nmrtist.org/">NMRtist</a>. The peak lists that it will create will be the input to 4D-GRAPHS.</p>
+    <p><strong>Important:</strong> 4D-GRAPHS requires processed peak lists as input. It does not support automated peak picking or unfolding/unaliasing of peaks. If you seek an automatic solution for that, then use the application “ARTINA peak picking” from <a href="https://nmrtist.org/">NMRtist</a>. The peak lists that it will create will be the input to 4D-GRAPHS.</p>
     <p>The following experiments and the specified pulse programs should be measured in all scenarios as they are essential for chemical shift assignment by 4D-GRAPHS. That's why we recommend measuring both 15N and 13C HSQC spectra using full spectral widths in order to be able to identify and unfold/unalias manually all peaks in the 4D or 3D spectra.</p>
     <ul>
       <li><strong>13C HSQC (hsqcedetgp):</strong> This pulse program yields CH and CH₃ in-phase and CH₂ anti-phase.</li>
@@ -73,7 +77,7 @@ function getRecommendations(answers) {
   }
 
   // Evaluate structural features
-  if (answers.features.includes("intrinsically_disordered") || answers.features.includes("long_loops") || answers.features.includes("flexible_termini")) {
+  if (answers.featureIntrinsic === "yes" || answers.featureLoops === "yes" || answers.featureTermini === "yes") {
     recs.push({
       name: "Specialized Experiments for Dynamic Proteins",
       justification: "The presence of disordered regions, long loops, or flexible termini suggests the need for experiments that capture dynamic behavior."
